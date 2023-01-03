@@ -1,12 +1,13 @@
 #include<stdio.h>
 #include<stdlib.h>
+#include<stdbool.h>
 
 int main(){
 
     FILE *fptr;
    char a;
     int i=0;int count=0;
-    char arrFile[100000];
+    char arrFile[6000];
     fptr=fopen("forass4.txt","r");
 
     if(fptr == NULL){
@@ -19,11 +20,10 @@ int main(){
 
         while(!feof(fptr)){
 
-            fscanf(fptr,"%c",&arrFile[i]);
+            fscanf(fptr,"%c",&arrFile);
 
-           // printf("%c",arr[i]);
+           // printf("%s",arrFile);
 
-            i++;
 
 
         }
@@ -36,33 +36,73 @@ int main(){
 
 
 
-        char search1[]={'w','i','n','h','t','u','t'};
+        char search1[]="winhtut";
+        char search2[]="winhtutwinhtutwinhtut";
        // printf("%d",sizeof(search1));
 
+            bool found=false;i=0;
 
 
-    for(int j=0;j<sizeof(search1);j++){
-
-             //   printf("size of search %d \n",sizeof(search1));
-
-            for(int a=0;a<i;a++){
+          //  for(int j=0;j<=sizeof(search1);j++){
 
 
+                 while(search1[i] !='\0' ||search2[i] !='\0'){
 
-                if(search1[j]== arrFile[a] && search1[j+j] == arrFile[a+j]){
+                    if(search1[i]==search2[i]){
 
-                       printf("%c ",arrFile[a]);
+                        found=true;
+                        count++;
 
-                      count++;
+                    }
+                    else{
+                        found=false;
+                          break;
 
-                 //  }
-
+                   // }
                 }
 
+                i++;
+           //     printf("\n %d \n",i);
+
             }
+
+            if(found == true){
+
+                //count++;
+                    }
+printf("\n %d \n",count);
+
+
+
+
+
+ /*     for (int a=0;a<sizeof(search1);a++){
+
+        for (int j=0;j<i;j++){
+
+           if(search1[a]==arrFile[j] && search1[a+a]==arrFile[j+a]){
+
+            count++;
+            printf("%c ",arrFile[j]);
+
+           }
+
+
+
         }
-printf("\n%d\n",count);
-printf("%d",count/sizeof(search1));
+
+  }
+printf("\n %d \n",count/sizeof(search1));
+
+
+
+
+
+
+
+*/
+
+
 
 
 
